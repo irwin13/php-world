@@ -1,0 +1,14 @@
+{
+    "name": "irwin13/sis",
+    "description": "School Information System",
+    "require": {
+        "slim/slim": "^2.6"
+    },
+    "authors": [
+        {
+            "name": "Muhammad Irwin",
+            "email": "irwin13@gmail.com"
+        }
+    ],
+    "minimum-stability": "alpha"
+}
