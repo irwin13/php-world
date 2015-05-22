@@ -16,7 +16,7 @@ $app->get('/students', function() use ($app) {
 				'list' => $result
 			)
 		);
-	} catch(PDOException $e) {
+	} catch (PDOException $e) {
 		//error_log($e->getMessage(), 3, '/var/tmp/phperror.log'); //Write error log
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
