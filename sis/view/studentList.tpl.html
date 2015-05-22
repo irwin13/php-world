@@ -1,10 +1,28 @@
-<html>
-	<head>
-		<title>Student List</title>
+<!DOCTYPE html>
+<html lang="en">
+	<head>		
+		{include file="view/header.tpl.html" title="Student List"}
 	</head>
-	<body>
+	<body>	
+	{include file="view/menu.tpl.html"}	
+	
+	<table class="table">
+		<tr>
+			<td>Id</td>
+			<td>First Name</td>
+			<td>Last Name</td>
+			<td>NIM</td>
+		</tr>
 	{foreach $list as $student}
-	<p>{$student.id} {$student.first_name} {$student.last_name} {$student.nim}</p>
-	{/foreach}	
+		<tr>
+			<td>{$student.id}</td>
+			<td>{$student.first_name}</td>
+			<td>{$student.last_name}</td>
+			<td>{$student.nim}</td>
+		</tr>
+	{/foreach}		
+	</table>
+	
+	{include file="view/footer.tpl.html"}	
 	</body>
 </html>
