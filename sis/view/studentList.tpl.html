@@ -1,0 +1,10 @@
+<html>
+	<head>
+		<title>Student List</title>
+	</head>
+	<body>
+	{foreach $list as $student}
+	<p>{$student.id} {$student.first_name} {$student.last_name} {$student.nim}</p>
+	{/foreach}	
+	</body>
+</html>

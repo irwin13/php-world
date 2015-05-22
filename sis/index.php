@@ -1,18 +1,21 @@
 <?php
 require 'vendor/autoload.php';
+require 'vendor/slim/views/Smarty.php';
 
-$app = new \Slim\Slim();
+$app = new \Slim\Slim(array(
+		'view' => new \Slim\Views\Smarty(),
+		'debug' => true,
+		'log.enable' => true,
+		'log.path' => 'logs/',
+		'log.level' => 4,
+		'mode' => 'development'
+	)
+);
 
 $app->get('/', function () {
     echo "HOMEPAGE";
 });
 
-$app->get('/hi', function () {
-    echo "HIHIHI";
-});
-
-$app->get('/hello', function () {
-    echo "Hello";
-});
+require_once 'controller.php';
 
 $app->run();
