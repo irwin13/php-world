@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>		
+		{include file="view/header.tpl.html" title="Student Create"}
+	</head>
+	<body role="document">	
+		{include file="view/menu.tpl.html"}	
+		
+		<form method="post" action="http://localhost:8888/sis/student/create">
+			<input type="text" name="first_name" id="first_name" />
+			<input type="text" name="last_name" id="last_name" />
+			<input type="text" name="nim" id="nim" />
+			<input type="submit" value="Save" />
+		</form>
+		
+		{include file="view/footer.tpl.html"}	
+	</body>
+</html>
