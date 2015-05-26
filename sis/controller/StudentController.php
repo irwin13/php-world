@@ -22,11 +22,11 @@ $app->get('/students', function() use ($app) {
 	}
 });
 
-$app->get('/student/create', function() use ($app) {
+$app->get('/student-create', function() use ($app) {
 	$app->render('view/studentInsert.tpl.html');
 });
 
-$app->post('/student/create', function() use ($app) {
+$app->post('/student-create', function() use ($app) {
     $sql = "INSERT INTO student (first_name, last_name, nim) VALUES (?, ?, ?)";
 	try {
 		$db = getDbConnection();
@@ -38,7 +38,7 @@ $app->post('/student/create', function() use ($app) {
 		$generated_id = $stmt->execute([$first_name, $last_name, $nim]);
 		$db = null;
 				
-		$app->redirect('/students');
+		$app->redirect('students');
 	} catch (PDOException $e) {
 		//error_log($e->getMessage(), 3, '/var/tmp/phperror.log'); //Write error log
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
