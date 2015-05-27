@@ -12,8 +12,8 @@ $app = new \Slim\Slim(array(
 	)
 );
 
-$app->get('/', function () {
-    echo "HOMEPAGE";
+$app->get('/', function () use ($app) {
+    $app->render('view/homepage.tpl.html');
 });
 
 require_once 'controller.php';
