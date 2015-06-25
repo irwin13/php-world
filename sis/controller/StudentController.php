@@ -85,3 +85,20 @@ $app->post('/student-edit', function() use ($app) {
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 });
+
+
+$app->get('/student-delete/:id', function($id) use ($app) {
+    $sql = "DELETE FROM student WHERE id = ?";
+	try {
+		$db = getDbConnection();
+		$stmt = $db->prepare($sql); 
+		$stmt->execute([$id]);
+		$db = null;
+				
+		$app->redirect('/sis/students');
+		
+	} catch (PDOException $e) {
+		//error_log($e->getMessage(), 3, '/var/tmp/phperror.log'); //Write error log
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+});

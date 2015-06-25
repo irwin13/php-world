@@ -13,6 +13,7 @@
 				<td>Last Name</td>
 				<td>NIM</td>
 				<td>Edit</td>
+				<td>Delete</td>
 			</tr>
 			{foreach $list as $student}
 			<tr>
@@ -21,6 +22,7 @@
 				<td>{$student.last_name}</td>
 				<td>{$student.nim}</td>
 				<td><a href="student-edit/{$student.id}">Edit</a></td>
+				<td><a href="student-delete/{$student.id}">Delete</a></td>
 			</tr>
 			{/foreach}		
 		</table>
