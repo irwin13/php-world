@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>		
+		{include file="view/header.tpl.html" title="Student Edit"}
+	</head>
+	<body role="document">	
+		{include file="view/menu.tpl.html"}	
+		
+		<form method="post" action="/sis/student-edit">
+			<input type="hidden" name="id" id="id" value="{$model.id}"/>
+			<input type="text" name="first_name" id="first_name" value="{$model.first_name}"/>
+			<input type="text" name="last_name" id="last_name" value="{$model.last_name}" />
+			<input type="text" name="nim" id="nim" value="{$model.nim}" />
+			<input type="submit" value="Save" />
+		</form>
+		
+		{include file="view/footer.tpl.html"}	
+	</body>
+</html>
