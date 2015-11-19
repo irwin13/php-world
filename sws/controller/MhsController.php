@@ -29,6 +29,41 @@ $app->get('/mhs', function() use ($app) {
 	}
 });
 
+$app->get('/mhs/sp', function() use ($app) {
+    $sql = 'begin PROC_WITH_CURSOR(:number, :cursbv); end;';
+	try {
+		$results = array();
+		$num = 29;
+		$conn = getDbConnection();
+		$curs = oci_new_cursor($conn);
+		$stid = oci_parse($conn, $sql);
+		//oci_bind_by_name($stid, ":number", $num); // untuk input maxlength dan type bisa dikosongkan, default adalah -1 dan SQLT_CHR
+		oci_bind_by_name($stid, ":number", $num, -1, OCI_B_INT); // eksplisit menyebut type adalah INT
+		//oci_bind_by_name($stid, ":number", $num, -1, SQLT_CHR); // default type adalah VARCHAR /CHAR ,masih bisa, php akan melakukan konversi otomatis
+		oci_bind_by_name($stid, ":cursbv", $curs, -1, OCI_B_CURSOR); // untuk out harus di define type OCI_B_CURSOR
+		oci_execute($stid);
+		oci_execute($curs);
+						
+		while (($row = oci_fetch_array($curs, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+			$results[] = $row;
+		}				
+	
+		$app->render(
+			'view/mhsListSp.tpl.html',
+			array(
+				'list' => $results
+			)
+		);
+		
+		oci_free_statement($stid);
+		oci_free_statement($curs);
+		oci_close($conn);
+	} catch (Exception $e) {
+		//error_log($e->getMessage(), 3, '/var/tmp/phperror.log'); //Write error log
+		echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
+});
+
 /*
 $app->get('/student-create', function() use ($app) {
 	$app->render('view/studentInsert.tpl.html');

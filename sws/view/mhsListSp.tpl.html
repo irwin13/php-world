@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>		
+		{include file="view/header.tpl.html" title="Student List"}
+	</head>
+	<body role="document">	
+		{include file="view/menu.tpl.html"}	
+		
+		<table class="table">
+			<tr>
+				<td>Col 1</td>
+				<td>Col 2</td>
+			</tr>
+			{foreach $list as $student}
+			<tr>
+				<td>{$student.COL1}</td>
+				<td>{$student.COL2}</td>
+			</tr>
+			{/foreach}		
+		</table>
+		
+		{include file="view/footer.tpl.html"}	
+	</body>
+</html>
