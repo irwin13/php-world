@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>		
+		{include file="view/header.tpl.html" title="Student List"}
+	</head>
+	<body role="document">	
+		{include file="view/menu.tpl.html"}	
+		
+		<table class="table">
+			<tr>
+				<td>Id</td>
+				<td>Nama</td>
+				<td>Alamat</td>
+				<td>Usia</td>
+			</tr>
+			{foreach $list as $student}
+			<tr>
+				<td>{$student.ID}</td>
+				<td>{$student.NAMA}</td>
+				<td>{$student.ALAMAT}</td>
+				<td>{$student.USIA}</td>
+			</tr>
+			{/foreach}		
+		</table>
+		
+		{include file="view/footer.tpl.html"}	
+	</body>
+</html>
