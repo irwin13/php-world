@@ -24,7 +24,7 @@ $app->get('/mhs', function() use ($app) {
 		oci_free_statement($stid);
 		oci_close($conn);
 	} catch (Exception $e) {
-		//error_log($e->getMessage(), 3, '/var/tmp/phperror.log'); //Write error log
+		error_log($e->getMessage(), 3, '/var/tmp/phperror.log'); //Write error log
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 });
@@ -59,7 +59,7 @@ $app->get('/mhs/sp', function() use ($app) {
 		oci_free_statement($curs);
 		oci_close($conn);
 	} catch (Exception $e) {
-		//error_log($e->getMessage(), 3, '/var/tmp/phperror.log'); //Write error log
+		error_log($e->getMessage(), 3, '/var/tmp/phperror.log'); //Write error log
 		echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 });
