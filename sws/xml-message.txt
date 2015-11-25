@@ -1,0 +1,15 @@
+<inputMessage>
+  <username>sucofindo</username>
+  <password>12345</password>
+  <functionId>sci_integ_cust_up_prc</functionId>
+  <parameterList>
+    <parameter>
+      <name>param1</name>
+      <value>abc</value>
+    </parameter>
+    <parameter>
+      <name>param2</name>
+      <value>119</value>
+    </parameter>    
+  </parameterList>
+</inputMessage>
