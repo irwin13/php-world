@@ -40,9 +40,7 @@ output format
 */
 
 $app->post('/ws', function() use ($app) {
-    
-	
-			
+    	
 	try {
 		
 		$sql = 'begin ';
@@ -295,4 +293,28 @@ $app->post('/ws-function', function() use ($app) {
 		oci_close($conn);		
 	}
 	
+});
+
+$app->get('/ws-test', function() use ($app) {
+	$xml = '<inputMessage>
+  <username>sucofindo</username>
+  <password>12345</password>
+  <functionId>2</functionId>
+  <parameterList>
+    <parameter>
+      <name>param1</name>
+      <value>1233</value>
+    </parameter>
+    <parameter>
+      <name>param2</name>
+      <value>abc</value>
+    </parameter>    
+  </parameterList>
+</inputMessage>';
+
+	$curl = curl_init('http://localhost:8888/sws/ws');
+	curl_setopt($curl, CURLOPT_POST, 1);
+	curl_setopt($curl, CURLOPT_POSTFIELDS, $xml);
+	$result = curl_exec($curl);
+    echo "{$result}";
 });
