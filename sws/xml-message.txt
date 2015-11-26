@@ -1,3 +1,4 @@
+<!-- test proc output varchar -->
 <inputMessage>
   <username>sucofindo</username>
   <password>12345</password>
@@ -13,3 +14,18 @@
     </parameter>    
   </parameterList>
 </inputMessage>
+
+
+<!-- test proc output cursor -->
+<inputMessage>
+  <username>sucofindo</username>
+  <password>12345</password>
+  <functionId>sci_integ_om_cursor</functionId>
+  <parameterList>
+    <parameter>
+      <name>param1</name>
+      <value>2</value>
+    </parameter>
+  </parameterList>
+</inputMessage>
+
