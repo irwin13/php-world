@@ -1,0 +1,54 @@
+<definitions name="CallSPService"
+   targetNamespace="http://localhost:8888/web-service/call-sp.wsdl"
+   xmlns="http://schemas.xmlsoap.org/wsdl/"
+   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:tns="http://localhost:8888/web-service/call-sp.wsdl"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ 
+   <message name="capllSpRequest">
+      <part name="username" type="xsd:string"/>
+	  <part name="password" type="xsd:string"/>
+	  <part name="functionId" type="xsd:string"/>
+	  <part name="data" type="xsd:string"/>
+   </message>
+   <message name="capllSpResponse">
+      <part name="status" type="xsd:string"/>
+	  <part name="message" type="xsd:string"/>
+	  <part name="data" type="xsd:string"/>
+   </message>
+
+   <portType name="CallSP_PortType">
+      <operation name="callSP">
+         <input message="tns:capllSpRequest"/>
+         <output message="tns:capllSpResponse"/>
+      </operation>
+   </portType>
+
+   <binding name="CallSP_Binding" type="tns:CallSP_PortType">
+   <soap:binding style="rpc"
+      transport="http://schemas.xmlsoap.org/soap/http"/>
+   <operation name="callSP">
+      <soap:operation soapAction="callSP"/>
+      <input>
+         <soap:body
+            encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+            namespace="urn:sucofindo:CallSPservice"
+            use="encoded"/>
+      </input>
+      <output>
+         <soap:body
+            encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+            namespace="urn:sucofindo:CallSPservice"
+            use="encoded"/>
+      </output>
+   </operation>
+   </binding>
+
+   <service name="CallSP_Service">
+      <documentation>WSDL File for CallSPService</documentation>
+      <port binding="tns:CallSP_Binding" name="CallSP_Port">
+         <soap:address
+            location="http://localhost:8888/web-service/soap.php"/>
+      </port>
+   </service>
+</definitions>
