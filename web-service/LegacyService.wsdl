@@ -1,0 +1,57 @@
+<definitions name="LegacyService"
+   targetNamespace="http://oratest.sucofindo.co.id/web-service/LegacyService.wsdl"
+   xmlns="http://schemas.xmlsoap.org/wsdl/"
+   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:tns="http://oratest.sucofindo.co.id/web-service/LegacyService.wsdl"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ 
+   <message name="LegacyRequest">
+      <part name="username" type="xsd:string"/>
+	  <part name="password" type="xsd:string"/>
+	  <part name="applicationId" type="xsd:string"/>
+	  <part name="refNo" type="xsd:string"/>
+	  <part name="functionId" type="xsd:string"/>
+	  <part name="data" type="xsd:string"/>
+   </message>
+   <message name="LegacyResponse">
+      <part name="log" type="xsd:string"/>
+	  <part name="message" type="xsd:string"/>	  
+	  <part name="description" type="xsd:string"/>
+	  <part name="output" type="xsd:string"/>
+   </message>
+
+   <portType name="Legacy_PortType">
+      <operation name="legacy">
+         <input message="tns:LegacyRequest"/>
+         <output message="tns:LegacyResponse"/>
+      </operation>
+   </portType>
+
+   <binding name="Legacy_Binding" type="tns:Legacy_PortType">
+   <soap:binding style="rpc"
+      transport="http://schemas.xmlsoap.org/soap/http"/>
+   <operation name="legacy">
+      <soap:operation soapAction="legacy"/>
+      <input>
+         <soap:body
+            encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+            namespace="urn:sucofindo:Legacyservice"
+            use="encoded"/>
+      </input>
+      <output>
+         <soap:body
+            encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+            namespace="urn:sucofindo:Legacyservice"
+            use="encoded"/>
+      </output>
+   </operation>
+   </binding>
+
+   <service name="Legacy_Service">
+      <documentation>WSDL File for LegacyService</documentation>
+      <port binding="tns:Legacy_Binding" name="Legacy_Port">
+         <soap:address
+            location="http://oratest.sucofindo.co.id/web-service/soap.php"/>
+      </port>
+   </service>
+</definitions>

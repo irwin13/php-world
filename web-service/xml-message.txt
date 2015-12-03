@@ -1,0 +1,47 @@
+<web-service-input>
+	<username>sucofindo</username>
+	<password>12345</password>
+	<applicationId>APP1</applicationId>
+	<refNo>12345</refNo> <!-- if empty, then server generate one, like for retrieve or get process-->
+	<functionId>7</functionId>
+	<data>
+		<param>
+			<name>NAMA_LENGKAP</name>
+			<value>BUDI</value>
+		</param>
+		<param>
+			<name>ALAMAT</name>
+			<value>JAKART</value>
+		</param>		
+	</data>
+</web-service-input>
+
+<web-service-input>
+	<username>sucofindo</username>
+	<password>12345</password>
+	<applicationId>APP1</applicationId>
+	<refNo>12345</refNo> <!-- if empty, then server generate one, like for retrieve or get process-->
+	<functionId>7</functionId>
+	<data>
+		<NAMA_LENGKAP>BUDI</NAMA_LENGKAP>
+		<ALAMAT>JAKARTA</ALAMAT>
+	</data>
+</web-service-input>
+
+<web-service-output>
+	<status>success | error</status>
+	<message>a message</message>
+	<applicationId>APP1<applicationId>
+	<refNo>12345</refNo>
+	<data>
+		<rowData>
+			<NAMA_LENGKAP>BUDI</NAMA_LENGKAP>
+			<ALAMAT>JAKARTA</ALAMAT>		
+		</rowData>
+		<rowData>
+			<NAMA_LENGKAP>DEWI</NAMA_LENGKAP>
+			<ALAMAT>BOGOR</ALAMAT>		
+		</rowData>
+	</data>
+</web-service-output>
+
